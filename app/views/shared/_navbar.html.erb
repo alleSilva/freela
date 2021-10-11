@@ -4,17 +4,23 @@
       <div>
         <%= link_to 'Freela', root_path, class:"text-blue-800 font-bold text-4xl" %>
       </div>
-      
+
       <% if current_project_owner %>
         <%= link_to 'Publique um projeto', root_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
         <%= link_to 'Logout', destroy_project_owner_session_path, method: :delete, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
         <%= current_project_owner.email %>
+      <% elsif current_freelancer %>
+        <%= link_to 'Publique um projeto', root_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
+        <%= link_to 'Logout', destroy_project_owner_session_path, method: :delete, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
+        <%= current_freelancer.email %>
+
       <% else %>
         <div class="hidden md:flex items-center space-x-1">
-            <%= link_to 'Cadastre-se', new_project_owner_registration_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
-            <%= link_to 'Entrar', new_project_owner_session_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
+            <%= link_to 'Cadastre-se', sign_up_page_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
+            <%= link_to 'Entrar', sign_in_page_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
         </div>
       <% end %>
+
     </div>
   </div>
 </nav>
