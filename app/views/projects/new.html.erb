@@ -1,0 +1,60 @@
+<h1 class="form-title mt-4">Cadastro de Projeto</h1>
+
+<%= form_with(model: @project) do |f| %>
+  <div class="form-m-w-content">
+    <div class="mb-4">
+      <%= f.label :title, 'Título',class: "form-label" %>
+      <%= f.text_field :title, class: "form-text-field" %>
+
+      <% @project.errors.full_messages_for(:title).each do |message| %>
+        <% message.slice!(0, :title.length + 1) %>
+        <div class="mt-1 text-red-500"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :description, 'Descrição', class: "form-label" %>
+      <%= f.text_area :description, rows: 4, class: "form-text-field" %>
+
+      <% @project.errors.full_messages_for(:description).each do |message| %>
+        <% message.slice!(0, :description.length + 1) %>
+        <div class="mt-1 text-red-500"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :skills, 'Habilidades',class: "form-label" %>
+      <%= f.text_field :skills, class: "form-text-field" %>
+
+      <% @project.errors.full_messages_for(:skills).each do |message| %>
+        <% message.slice!(0, :skills.length + 1) %>
+        <div class="mt-1 text-red-500"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :max_payment_hour, 'Valor máximo da hora a ser paga',class: "form-label" %>
+      <%= f.number_field :max_payment_hour, class: "form-text-field" %>
+
+      <% @project.errors.full_messages_for(:max_payment_hour).each do |message| %>
+        <% message.slice!(0, :max_payment_hour.length + 1) %>
+        <div class="mt-1 text-red-500"><%= message %></div>
+      <% end %>
+
+    </div>
+    
+    <div class="flex items-end">
+      <div class="mb-4">
+        <%= f.label :limit_bid_date, 'Aplicar até a data', class: "form-label" %>
+        <%= f.text_field :limit_bid_date, class: "form-text-field-half" %>
+      </div>
+
+      <div class="flex items-center mb-4">
+        <%= f.check_box :remote %>
+        <%= f.label :remote, 'Remoto', class: "mx-2" %>
+      </div>
+    </div>
+
+    <%= f.submit 'Publicar', class: "form-submit-button" %>
+  </div>
+<% end %>

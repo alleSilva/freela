@@ -15,25 +15,25 @@ describe 'Project Owner register project' do
     #Act
     login_as project_owner, scope: :project_owner
     visit root_path
-    #click_on 'Entrar'
+    click_on 'Publicar projeto'
     #click_on 'Entrar e publicar um projeto'
 
     fill_in 'Título', with: 'Site institucional'
     fill_in 'Descrição', with: 'Site de escola com várias informações'
     fill_in 'Habilidades', with: 'Javascript, Html, Css'
-    fill_in 'Valor máximo por hora', with: '50'
+    fill_in 'Valor máximo da hora a ser paga', with: '50'
     check 'Remoto'
     fill_in 'Aplicar até', with: '20/11/2021'
-    click_on 'Enviar'
+    click_on 'Publicar'
 
     #Assert
     expect(page).to have_content('Site institucional')
     expect(page).to have_content('Site de escola com várias informações')
     expect(page).to have_content("Javascript, Html, Css")
-    expect(page).to have_content("Valor: 50")
+    expect(page).to have_content("Valor: $50.00")
     expect(page).to have_content("Remoto: Sim")
-    expect(page).to have_content("Aplicar até: 20/11/2021")
-    expect(page).to have_content("Projeto publicado por: ale@email.com.br")
+    expect(page).to have_content("Aplicar até: 2021-11-20")
+    #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
   end
 
   it 'and must fill all fields' do
@@ -41,13 +41,12 @@ describe 'Project Owner register project' do
 
     login_as project_owner, scope: :project_owner
     visit root_path
-    click_on 'Entrar'
-    click_on 'Entrar e publicar um projeto'
-    click_on 'Enviar'
+    click_on 'Publicar projeto'
+    click_on 'Publicar'
 
-    expect(page).to have_content('não pode ficar em branco', count: 5)
-    expect(page).to have_content('Título não pode ficar em branco')
-    expect(page).to have_content('Descrição não pode ficar em branco')
+    expect(page).to have_content('Esse campo não pode ficar em branco')
+    #expect(page).to have_content('Título não pode ficar em branco')
+    #expect(page).to have_content('Descrição não pode ficar em branco')
     expect(Project.count).to eq(0)
   end
 

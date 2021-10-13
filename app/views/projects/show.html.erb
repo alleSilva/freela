@@ -1,0 +1,17 @@
+<%= @project.title %>
+<%= @project.description %>
+<%= @project.skills %>
+<%= @project.max_payment_hour %>
+Remoto:
+<% if @project.remote? %>
+  Sim
+<% else %>
+  Não
+<% end %>
+
+Valor: <%= number_to_currency @project.max_payment_hour %>
+Aplicar até: <%= @project.limit_bid_date %>
+
+
+
+
