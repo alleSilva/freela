@@ -30,7 +30,7 @@ describe 'Project Owner register project' do
     expect(page).to have_content('Site institucional')
     expect(page).to have_content('Site de escola com várias informações')
     expect(page).to have_content("Javascript, Html, Css")
-    expect(page).to have_content("Valor: $50.00")
+    expect(page).to have_content("Valor: R$ 50,00")
     expect(page).to have_content("Remoto: Sim")
     expect(page).to have_content("Aplicar até: 2021-11-20")
     #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
@@ -44,7 +44,7 @@ describe 'Project Owner register project' do
     click_on 'Publicar projeto'
     click_on 'Publicar'
 
-    expect(page).to have_content('Esse campo não pode ficar em branco')
+    expect(page).to have_content('não pode ficar em branco')
     #expect(page).to have_content('Título não pode ficar em branco')
     #expect(page).to have_content('Descrição não pode ficar em branco')
     expect(Project.count).to eq(0)

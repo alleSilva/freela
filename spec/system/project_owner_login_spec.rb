@@ -12,7 +12,7 @@ describe 'Visitor log in' do
         click_on 'Log in'
       end
 
-      expect(page).to have_content('Login efetuado com sucesso!')
+      expect(page).to have_content('Logado com sucesso')
       # expect(page).to have_content(project_owner.email)
       expect(page).to have_link('Logout')
       expect(page).not_to have_link('Entrar')
@@ -33,7 +33,7 @@ describe 'Visitor log in' do
         click_on 'Log in'
       end
 
-      expect(page).to have_content('Login efetuado com sucesso!')
+      expect(page).to have_content('Logado com sucesso')
       #expect(page).to have_content(freelancer.email)
       expect(page).to have_link('Logout')
       expect(page).not_to have_link('Entrar')
