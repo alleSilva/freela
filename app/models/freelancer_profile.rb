@@ -1,0 +1,2 @@
+class FreelancerProfile < ApplicationRecord
+end
