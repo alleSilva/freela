@@ -14,7 +14,7 @@
     </div>
 
     <div class="mb-4">
-      <%= f.label :social_name, 'Nome social',class: "form-label" %>  
+      <%= f.label :social_name, 'Nome Social',class: "form-label" %>  
       <%= f.text_field :social_name, class: "form-text-field" %>
 
       <% @freelancer_profile.errors.full_messages_for(:social_name).each do |message| %>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="mb-4">
-      <%= f.label :birth_date, 'Data de nascimento', class: "form-label" %>
+      <%= f.label :birth_date, 'Data de Nascimento', class: "form-label" %>
       <%= f.text_field :birth_date, class: "form-text-field" %>
 
       <% @freelancer_profile.errors.full_messages_for(:description).each do |message| %>
@@ -32,10 +32,10 @@
     </div>
 
     <div class="mb-4">
-      <%= f.label :education, 'Nome completo',class: "form-label" %>
+      <%= f.label :education, 'Formação',class: "form-label" %>
       <%= f.text_field :education, class: "form-text-field" %>
 
-      <% @freelancer_profile.errors.full_messages_for(:complete_name).each do |message| %>
+      <% @freelancer_profile.errors.full_messages_for(:education).each do |message| %>
         <div class="mt-1 text-red-500"><%= message %></div>
       <% end %>
     </div>
@@ -53,20 +53,11 @@
       <%= f.label :experience, 'Experiência', class: "form-label" %>
       <%= f.text_area :experience, rows: 4, class: "form-text-field" %>
 
-      <% @feelancer_profile.errors.full_messages_for(:description).each do |message| %>
+      <% @freelancer_profile.errors.full_messages_for(:experience).each do |message| %>
         <div class="mt-1 text-red-500"><%= message %></div>
       <% end %>
     </div>
 
-    <div class="mb-4">
-      <%= f.label :skills, 'Habilidades',class: "form-label" %>
-      <%= f.text_field :skills, class: "form-text-field" %>
-
-      <% @project.errors.full_messages_for(:skills).each do |message| %>
-        <div class="mt-1 text-red-500"><%= message %></div>
-      <% end %>
-    </div>
-
-    <%= f.submit 'Publicar', class: "form-submit-button" %>                                                                                                                                                                                                                   
+    <%= f.submit 'Salvar', class: "form-submit-button" %>                                                                                                                                                                                                                   
   </div>                                                                                                                                                                                                                                                                      
 <% end %>

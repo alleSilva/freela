@@ -8,12 +8,16 @@ describe 'Visitor log in' do
 
       fill_in 'Nome completo', with: 'Alesandro Silva'
       fill_in 'Nome Social', with: ''
-      fill_in 'Data de Nascimento', '2021-09-04'
+      fill_in 'Data de Nascimento', with: '2021-09-04'
+      fill_in 'Descrição', with: 'Sou profissional com ampla exeperiencia em sistemas'
+      fill_im 'Formação', with: 'Sistemas de informação'
+      fill_in 'Experiência', '5 anos em ruby on rails'
+      attach_file 'Foto', 'app/assets/foto.jpg'
 
+      click_on 'Salvar'
       #expect(page).to have_content(freelancer.email)
       expect(page).to have_content('Boas vindas! Mantenha seu perfil sempre atualizado')
       expect(page).to have_content('Perfil')
-      expect(page).to have_link('Salvar')
     end
   end
 
