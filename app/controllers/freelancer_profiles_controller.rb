@@ -1,5 +1,6 @@
 class FreelancerProfilesController < ApplicationController
   def show
+    @freelancer_profile = FreelancerProfile.find(params[:id])
   end
 
   def new
@@ -16,5 +17,11 @@ class FreelancerProfilesController < ApplicationController
       :experience,
       :image
     ))
+
+    if @freelancer_profile.save
+      redirect_to @freelancer_profile
+    else
+      render :new
+    end
   end
 end
