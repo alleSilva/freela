@@ -8,11 +8,11 @@ describe 'Visitor log in' do
 
       fill_in 'Nome completo', with: 'Alesandro Silva'
       fill_in 'Nome Social', with: ''
-      fill_in 'Data de Nascimento', with: '2021-09-04'
+      fill_in 'Data de Nascimento', with: '20/11/2021'
       fill_in 'Descrição', with: 'Sou profissional com ampla exeperiencia em sistemas'
-      fill_im 'Formação', with: 'Sistemas de informação'
-      fill_in 'Experiência', '5 anos em ruby on rails'
-      attach_file 'Foto', 'app/assets/foto.jpg'
+      fill_in 'Formação', with: 'Sistemas de informação'
+      fill_in 'Experiência', with: '5 anos em ruby on rails'
+      attach_file 'Foto de Perfil', 'tmp/storage/foto.png'
 
       click_on 'Salvar'
       #expect(page).to have_content(freelancer.email)
