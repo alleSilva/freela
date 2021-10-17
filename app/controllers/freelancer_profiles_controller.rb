@@ -1,4 +1,5 @@
 class FreelancerProfilesController < ApplicationController
+  before_action :authenticate_freelancer!, only: [:new, :create]
   def show
     @freelancer_profile = FreelancerProfile.find(params[:id])
   end
@@ -8,7 +9,7 @@ class FreelancerProfilesController < ApplicationController
   end
 
   def create
-    @freelancer_profile = FreelancerProfile.create!(params.require(:freelancer_profile).permit(
+    @freelancer_profile = FreelancerProfile.new(params.require(:freelancer_profile).permit(
       :name,
       :social_name,
       :birth_date,
@@ -16,8 +17,10 @@ class FreelancerProfilesController < ApplicationController
       :description,
       :experience,
       :image,
-      :actuation_area_id
+      :actuation_area_id,
     ))
+
+    @freelancer_profile.freelancer = current_freelancer
 
     if @freelancer_profile.save
       redirect_to @freelancer_profile
