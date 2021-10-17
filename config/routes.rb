@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :projects
   resources :freelancers
   resources :freelancer_profiles
+  resources :actuation_areas
 end

@@ -15,7 +15,8 @@ class FreelancerProfilesController < ApplicationController
       :education,
       :description,
       :experience,
-      :image
+      :image,
+      :actuation_area_id
     ))
 
     if @freelancer_profile.save
