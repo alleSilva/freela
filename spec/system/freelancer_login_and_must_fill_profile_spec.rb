@@ -27,9 +27,6 @@ describe 'Visitor log in' do
       expect(page).to have_content('Formação: Sistemas de informação')
       expect(page).to have_content('Experiência: 5 anos em ruby on rails')
       expect(page).to have_content('Área de atuação: Front End')
-
-
-
     end
   end
 

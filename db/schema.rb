@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_082807) do
+ActiveRecord::Schema.define(version: 2021_10_17_231719) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -106,10 +106,13 @@ ActiveRecord::Schema.define(version: 2021_10_17_082807) do
     t.date "limit_bid_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "project_owner_id", null: false
+    t.index ["project_owner_id"], name: "index_projects_on_project_owner_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "freelancer_profiles", "actuation_areas"
   add_foreign_key "freelancer_profiles", "freelancers"
+  add_foreign_key "projects", "project_owners"
 end

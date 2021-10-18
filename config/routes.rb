@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'sign_in#index', as: 'sign_in_page'
   get '/sign_up', to: 'sign_up#index', as: 'sign_up_page'
   
-  resources :projects
-  resources :freelancers
-  resources :freelancer_profiles
-  resources :actuation_areas
+  resources :projects, only: [:show, :new, :create] do
+    get 'my_projects', on: :collection
+  end
+  resources :freelancers, only: [:show, :new, :create]
+  resources :freelancer_profiles, only: [:show, :new, :create]
+  resources :actuation_areas, only: [:show, :new, :create]
 end

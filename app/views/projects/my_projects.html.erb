@@ -1,0 +1,13 @@
+<h1>Meus Projetos</h1>
+
+<% if @projects.empty? %>
+  <div>
+    <p>Você ainda não tem projetos</p>
+    <p><%= link_to 'Cadastre seu primeiro projeto agora', new_project_path %></p>
+  </div>
+<% else %>
+  <% @projects.each do |p| %>
+    <%= p.title %>
+    <%= p.description %>
+  <% end %>
+<% end %>
