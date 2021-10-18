@@ -70,7 +70,7 @@ A aplicação está hospedada no heroku em: https://freela-web.herokuapp.com/
 - [ ] Aceitar/Recusar proposta
 - [ ] Marcar profissional como destaque
 - [ ] Encerrar inscrições para um projeto
-- [ ] Freelancer ver projetos disponíveis
+- [x] Freelancer ver projetos disponíveis
 - [ ] Buscar um projeto
 - [ ] Freelancer faz uma proposta para um projeto
 - [ ] Cancelar proposta
