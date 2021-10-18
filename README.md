@@ -33,7 +33,12 @@ bundle install
 - Em seguida executar:
 ```
 rails webpacker:install
+```
+pressionar a tecla n para manter o arquivo de config do tailwind css, e tecle Enter
 
+- Em seguida executar:
+```
+rails db:migrate
 rails server
 ```
 Acesse a aplicação pelo navegador: digitando http://localhost:3000/ na barra de endereço.
@@ -42,7 +47,7 @@ Acesse a aplicação pelo navegador: digitando http://localhost:3000/ na barra d
 
 Para executar os testes execute no terminal:
 ```
-rspec
+rspec --format=documentation
 ```
 ## 📦 Desenvolvimento
 
@@ -55,9 +60,22 @@ A aplicação está hospedada no heroku em: https://freela-web.herokuapp.com/
 ## Features
 
 - [x] Página inicial
-- [ ] Cadastro de usuário
-- [ ] Cadastro de Profissionais
-- [ ] Cadastro de projetos pelo usuário
+- [x] Cadastro de usuário
+- [x] Cadastro de Profissionais
+- [x] Preenchimento de perfil do Profisional
+- [ ] Redirecionar para preenchimento de perfil se não estiver completo 
+- [x] Cadastro de projetos pelo usuário
+- [x] Usuário ver seus projetos
+- [ ] Usuaŕio ver propostas
+- [ ] Aceitar/Recusar proposta
+- [ ] Marcar profissional como destaque
+- [ ] Encerrar inscrições para um projeto
+- [ ] Freelancer ver projetos disponíveis
+- [ ] Buscar um projeto
+- [ ] Freelancer faz uma proposta para um projeto
+- [ ] Cancelar proposta
+- [ ] Vizualizar time do projeto
+- [ ] Dar feedback para projeto
 
 ## 🛠️ Construído com
 
