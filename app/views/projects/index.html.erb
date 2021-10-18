@@ -1,0 +1,27 @@
+<section>
+  <h1>Projetos disponíveis</h1>
+  <% if @projects.empty? %>
+    <div><span>Nenhum imóvel disponível</span></div>
+  <% end %>
+
+  
+  <% @projects.each do |p| %>
+  <div class="max-w-lg mx-auto mt-16 text-center rounded overflow-hidden shadow-lg p-10 bg-white flex">
+    <%= p.title %>
+    <%= p.description %>
+    <%= p.skills %>
+    <%= p.max_payment_hour %>
+    Remoto:
+    <% if p.remote? %>
+      Sim
+    <% else %>
+      Não
+    <% end %>
+
+    Valor: <%= number_to_currency p.max_payment_hour %>
+    Aplicar até: <%= l p.limit_bid_date %>
+    </div>
+  <% end %>
+  
+</section>
+
