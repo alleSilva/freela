@@ -1,27 +1,40 @@
 <section>
-  <h1>Projetos disponíveis</h1>
+  <h1 class="block text-gray-700 text-xl font-bold mx-4 my-4">Projetos disponíveis</h1>
   <% if @projects.empty? %>
     <div><span>Nenhum imóvel disponível</span></div>
   <% end %>
-
   
   <% @projects.each do |p| %>
-  <div class="max-w-lg mx-auto mt-16 text-center rounded overflow-hidden shadow-lg p-10 bg-white flex">
-    <%= p.title %>
-    <%= p.description %>
-    <%= p.skills %>
-    <%= p.max_payment_hour %>
-    Remoto:
-    <% if p.remote? %>
-      Sim
-    <% else %>
-      Não
-    <% end %>
+  <div class="transition transform hover:scale-105 motion-reduce:transition-none">
+  <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
+    <div class="flex justify-between border-b-2 border-gray-400">
+      <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+        <%= p.title %>
+      </h4>
+      <div>
+        <%= number_to_currency p.max_payment_hour %>
+      </div>
+    </div>
+    <div class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <%= p.description %>
+    </div>
+    <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+      <%= p.skills %>
+    </div>
+    <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+      Remoto:
+      <% if p.remote? %>
+        Sim
+      <% else %>
+        Não
+      <% end %>
+    </div>
+    <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+      Aplicar até: <%= l p.limit_bid_date %>
+    </div>
 
-    Valor: <%= number_to_currency p.max_payment_hour %>
-    Aplicar até: <%= l p.limit_bid_date %>
+    </div>
     </div>
   <% end %>
   
 </section>
-

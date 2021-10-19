@@ -33,3 +33,7 @@
 .form-content-after-submit-button {
 	@apply mx-auto w-full max-w-xs mt-3;
 }
+
+input:checked + svg {
+	display: block;
+}

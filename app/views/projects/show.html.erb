@@ -1,17 +1,18 @@
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.skills %>
-<%= @project.max_payment_hour %>
-Remoto:
-<% if @project.remote? %>
-  Sim
-<% else %>
-  Não
-<% end %>
+<div class="max-w-xs mx-auto mt-16 text-center rounded overflow-hidden shadow-lg p-4 bg-white border-solid border-2 border-blue-800">
+  <%= @project.title %>
+  <%= @project.description %>
+  <%= @project.skills %>
+  <%= @project.max_payment_hour %>
+  Remoto:
+  <% if @project.remote? %>
+    Sim
+  <% else %>
+    Não
+  <% end %>
 
-Valor: <%= number_to_currency @project.max_payment_hour %>
-Aplicar até: <%= l @project.limit_bid_date %>
-
+  Valor: <%= number_to_currency @project.max_payment_hour %>
+  Aplicar até: <%= l @project.limit_bid_date %>
+</div>
 
 
 

@@ -10,10 +10,12 @@
     </div>
 
     <div class="mb-4">
+      <div class="flex ">
       <%= f.label :password, class: "form-label" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <span class="form-label flex ml-12">(<%= @minimum_password_length %> characters minimum)</span>
       <% end %>
+      </div>
       <%= f.password_field :password, autocomplete: "new-password", class: "form-text-field" %>
     </div>
 
@@ -23,7 +25,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "form-submit-button" %>
+      <%= f.submit "Sign up", class: "form-submit-button mb-2" %>
     </div>
   </div>
 <% end %>
