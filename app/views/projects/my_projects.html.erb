@@ -1,4 +1,4 @@
-<h1>Meus Projetos</h1>
+<h1 class="text-center mt-2 text-xl text-gray-800 font-medium">Meus Projetos</h1>
 
 <% if @projects.empty? %>
   <div>
@@ -7,7 +7,39 @@
   </div>
 <% else %>
   <% @projects.each do |p| %>
-    <%= p.title %>
-    <%= p.description %>
+    <div class="transition transform hover:scale-105 motion-reduce:transition-none">
+      <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
+        <div class="flex justify-between border-b-2 border-gray-400">   
+          <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+            <%= p.title %>
+          </h4>
+          
+          <div>
+            <%= number_to_currency p.max_payment_hour %>
+          </div>
+        </div>
+        
+        <div class="text-gray-800 text-sm font-medium my-2 text-justify">
+          <%= p.description %>
+        </div>
+      
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+        <%= p.skills %>
+      </div>
+    
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+        Remoto:
+        <% if p.remote? %>
+          Sim
+        <% else %>
+          Não
+        <% end %>
+      </div>
+    
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+        Aplicar até: <%= l p.limit_bid_date %>
+      </div>
+      </div>   
+    </div>
   <% end %>
 <% end %>
