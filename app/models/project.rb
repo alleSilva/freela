@@ -6,7 +6,7 @@ class Project < ApplicationRecord
     if pattern.blank?  # blank? covers both nil and empty string
       all
     else
-      where('title LIKE ?', "%#{pattern}%")
+      where('title LIKE ? OR description LIKE ? OR skills LIKE ?', "%#{pattern}%", "%#{pattern}%", "%#{pattern}%")
     end
   end
 end

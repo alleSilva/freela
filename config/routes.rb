@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :projects, only: [:index, :show, :new, :create] do
     get 'my_projects', on: :collection
+    get 'search', on: :collection
   end
   resources :freelancers, only: [:show, :new, :create]
   resources :freelancer_profiles, only: [:show, :new, :create]

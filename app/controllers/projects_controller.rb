@@ -34,4 +34,9 @@ class ProjectsController < ApplicationController
  def my_projects
   @projects = current_project_owner.projects
  end
+
+  def search
+    @projects = Project.search(params[:search])
+
+  end
 end

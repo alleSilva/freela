@@ -1,18 +1,34 @@
-<div class="max-w-xs mx-auto mt-16 text-center rounded overflow-hidden shadow-lg p-4 bg-white border-solid border-2 border-blue-800">
-  <%= @project.title %>
-  <%= @project.description %>
-  <%= @project.skills %>
-  <%= @project.max_payment_hour %>
-  Remoto:
-  <% if @project.remote? %>
-    Sim
-  <% else %>
-    Não
-  <% end %>
-
-  Valor: <%= number_to_currency @project.max_payment_hour %>
-  Aplicar até: <%= l @project.limit_bid_date %>
-</div>
-
-
-
+<div class="transition transform hover:scale-105 motion-reduce:transition-none">
+      <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
+        <div class="flex justify-between border-b-2 border-gray-400">   
+          <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+            <%= @project.title %>
+          </h4>
+          
+          <div>
+            <%= number_to_currency @project.max_payment_hour %>
+          </div>
+        </div>
+        
+        <div class="text-gray-800 text-sm font-medium my-2 text-justify">
+          <%= @project.description %>
+        </div>
+      
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+        Habilidades: <%= @project.skills %>
+      </div>
+    
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+        Remoto:
+        <% if @project.remote? %>
+          Sim
+        <% else %>
+          Não
+        <% end %>
+      </div>
+    
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+        Aplicar até: <%= l @project.limit_bid_date %>
+      </div>
+      </div>   
+    </div>

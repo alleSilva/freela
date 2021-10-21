@@ -30,7 +30,7 @@ describe 'Project Owner register project' do
     expect(page).to have_content('Site institucional')
     expect(page).to have_content('Site de escola com várias informações')
     expect(page).to have_content("Javascript, Html, Css")
-    expect(page).to have_content("Valor: R$ 50,00")
+    expect(page).to have_content("R$ 50,00")
     expect(page).to have_content("Remoto: Sim")
     expect(page).to have_content("Aplicar até: 02/11/2021")
     #expect(page).to have_content("Projeto publicado por: ale@email.com.br")

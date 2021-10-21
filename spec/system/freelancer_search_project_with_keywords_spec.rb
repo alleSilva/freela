@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Authenticated Freelancer search projects with especific keywords' do
   it 'successfully' do
     #Arrange
-    freelancer = Freelancer.create!(email: 'freelancer@email.com.br', password: '123456')
-    owner = ProjectOwner.create!(email: 'owner@email.com.br', password: '123456')
+    freelancer1 = Freelancer.create!(email: 'freelancer1@email.com.br', password: '123456')
+    owner = ProjectOwner.create!(email: 'owner1@email.com.br', password: '123456')
     projeto_a = Project.create!({
         title: "Site institucional",
         description: "Site de escola com várias informações",
@@ -14,10 +14,22 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
         limit_bid_date: "02/11/2021",
         project_owner: owner
     })
+
+    freelancer2 = Freelancer.create!(email: 'freelancer2@email.com.br', password: '123456')
+    owner = ProjectOwner.create!(email: 'owner2@email.com.br', password: '123456')
+    projeto_a = Project.create!({
+        title: "Api de entregas",
+        description: "Api para servir de backend para aplicativo",
+        skills: "Ruby, SQL, Json",
+        max_payment_hour: 100,
+        remote: true,
+        limit_bid_date: "22/01/2021",
+        project_owner: owner
+    })
       
 
     #Act
-    login_as freelancer, scope: :freelancer
+    login_as freelancer1, scope: :freelancer
     visit root_path
     click_on 'Ver projetos'
     #click_on 'Entrar e publicar um projeto'
@@ -33,6 +45,7 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
     expect(page).to have_content("R$ 50,00")
     expect(page).to have_content("Remoto: Sim")
     expect(page).to have_content("Aplicar até: 02/11/2021")
+    expect(page).not_to have_content('Api de entregas')
     #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
   end
 
