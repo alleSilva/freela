@@ -16,7 +16,8 @@ describe 'freelancer makes a proposal' do
 
     login_as freelancer, scope: :freelancer
     visit root_path
-    click_on 'Fazer Proposta'
+    click_on 'Ver projetos'
+    click_on project.title
     fill_in 'Por que quero participar do projeto', with: 'Tenho boa experieência em apis rest com ruby on rails'
     fill_in 'Quantidade de horas por semana', with: '20'
     fill_in 'Valor da hora de trabalho', with: '100'

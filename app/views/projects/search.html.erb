@@ -1,7 +1,7 @@
 <section>
   <h1 class="block text-center text-gray-700 text-xl font-bold mx-4 my-4">Projetos disponíveis</h1>
   <% if @projects.empty? %>
-    <div><span>Nenhum imóvel disponível</span></div>
+    <h2 class="text-gray-700 text-md font-bold mb-2 text-left ml-4">Nenhum projeto disponível</h2>
   <% end %>
 
   
@@ -18,7 +18,7 @@
       <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
         
         <div class="flex justify-between border-b-2 border-gray-400">   
-          <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+          <h4 class="text-gray-900 text-md font-bold mb-2 text-left">
             <%= p.title %>
           </h4>
           

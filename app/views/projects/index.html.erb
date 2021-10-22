@@ -1,7 +1,7 @@
 <section>
   <h1 class="block text-center text-gray-700 text-xl font-bold mx-4 my-4">Projetos disponíveis</h1>
   <% if @projects.empty? %>
-    <div><span>Nenhum imóvel disponível</span></div>
+    <div><span class="text-gray-800 text-md font-bold mb-2 text-left">Nenhum projeto disponível</span></div>
   <% end %>
 
   
@@ -19,7 +19,7 @@
         
         <div class="flex justify-between border-b-2 border-gray-400">   
           <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
-            <%= p.title %>
+            <%= link_to p.title, project_path(p.id) %>
           </h4>
           
           <div>
