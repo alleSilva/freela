@@ -1,4 +1,8 @@
 class ProposalsController < ApplicationController
+  def show
+    @proposal = Proposal.find(params[:id])
+  end
+
   def create
     @proposal = Proposal.new(
       params.require(:proposal).permit(
@@ -12,7 +16,8 @@ class ProposalsController < ApplicationController
     @proposal.freelancer = current_freelancer
     @proposal.project = @project
     @proposal.project_owner = @project.project_owner
+    @proposal.save!
+  
+    redirect_to @proposal, notice: 'Proposta enviada com sucesso'
   end
-
-  redirect_to @proposal
 end

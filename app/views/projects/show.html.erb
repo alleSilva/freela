@@ -32,7 +32,7 @@
       </div>
     
   <div class="border-t-2 border-gray-400 pt-2">
-  <%= form_with(model: @proposal, url: proposals_path) do |f| %>
+  <%= form_with model: [@project, @proposal] do |f| %>
   <%= f.label :resume, 'Por que quero participar do projeto', class: 'form-label' %>
   <%= f.text_area :resume, class: 'form-text-field' %>
   <%= f.label :payment_hour, 'Valor da hora de trabalho', class: 'form-label' %>

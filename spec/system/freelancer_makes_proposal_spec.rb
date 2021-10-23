@@ -18,13 +18,13 @@ describe 'freelancer makes a proposal' do
     visit root_path
     click_on 'Ver projetos'
     click_on project.title
-    fill_in 'Por que quero participar do projeto', with: 'Tenho boa experieência em apis rest com ruby on rails'
+    fill_in 'Por que quero participar do projeto', with: 'Tenho boa experiência em apis rest com ruby on rails'
     fill_in 'Quantidade de horas por semana', with: '20'
     fill_in 'Valor da hora de trabalho', with: '100'
     fill_in 'Data de conclusão', with: '12/10/2021'
     click_on 'Enviar Proposta'
 
-    expect(page).to have_content('Tenho boa experieência em apis rest com ruby on rails')
+    expect(page).to have_content('Tenho boa experiência em apis rest com ruby on rails')
     expect(page).to have_content('20')
     expect(page).to have_content('12/10/2021')
     expect(page).to have_content('R$ 100,00')
