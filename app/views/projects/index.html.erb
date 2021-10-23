@@ -44,9 +44,11 @@
         <% end %>
       </div>
     
-      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+      <div class="text-gray-800 text-sm font-medium mb-4 text-justify">
         Aplicar até: <%= l p.limit_bid_date %>
       </div>
+
+      <%= link_to 'Fazer uma proposta', project_path(p.id), class: 'form-submit-button' %>
 
       </div>
     </div>
