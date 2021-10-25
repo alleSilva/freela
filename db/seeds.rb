@@ -1,6 +1,7 @@
-freelancer = Freelancer.create(email: 'freelancer_john@mail.com.br', password: '123456')
-ale = ProjectOwner.create(email: 'ale@mail.com.br', password: '123456')
-iza = ProjectOwner.create(email: 'iza@mail.com.br', password: '123456')
+freelancer = Freelancer.create(email: 'freelancer@email.com', password: '123456')
+owner = ProjectOwner.create(email: 'owner@email.com', password: '123456')
+ale = ProjectOwner.create(email: 'ale@email.com', password: '123456')
+iza = ProjectOwner.create(email: 'iza@email.com', password: '123456')
 
 actuation_area1 = ActuationArea.create(name: 'Front End')
 actuation_area2 = ActuationArea.create(name: 'Back End')

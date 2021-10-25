@@ -70,7 +70,6 @@ describe 'project owner views a proposal' do
     expect(page).to have_content('20')
     expect(page).to have_content('15/01/2022')
     expect(page).to have_content('R$ 90,00')
-
     expect(page).not_to have_content('Faço as mais belas Landing Pages')
   end
 end
