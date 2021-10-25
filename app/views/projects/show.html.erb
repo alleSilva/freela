@@ -35,7 +35,7 @@
     <%= link_to 'Ver propostas', project_proposals_path(@project), class: 'form-submit-button' %>
   <% end%>
 
-  <% if current_freelancer %>
+  <% if current_freelancer && @project.proposals.blank? %>
     <div class="border-t-2 border-gray-400 pt-2">
       <%= form_with model: [@project, @proposal] do |f| %>
       <%= f.label :resume, 'Resumo da proposta', class: 'form-label' %>
