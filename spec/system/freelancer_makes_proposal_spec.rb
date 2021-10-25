@@ -18,7 +18,7 @@ describe 'freelancer makes a proposal' do
     visit root_path
     click_on 'Ver projetos'
     click_on project.title
-    fill_in 'Por que quero participar do projeto', with: 'Tenho boa experiência em apis rest com ruby on rails'
+    fill_in 'Resumo da proposta', with: 'Tenho boa experiência em apis rest com ruby on rails'
     fill_in 'Quantidade de horas por semana', with: '20'
     fill_in 'Valor da hora de trabalho', with: '100'
     fill_in 'Data de conclusão', with: '12/10/2021'

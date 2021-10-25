@@ -1,4 +1,4 @@
-<h1 class="text-center mt-5 text-2xl text-gray-800 font-medium">Meus Projetos</h1>
+<h1 class="text-center mt-2 text-xl text-gray-800 font-medium">Meus Projetos</h1>
 
 <% if @projects.empty? %>
   <div>
@@ -8,7 +8,7 @@
 <% else %>
   <% @projects.each do |p| %>
     <div class="transition transform hover:scale-105 motion-reduce:transition-none">
-      <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800 pb-5">
+      <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
         <div class="flex justify-between border-b-2 border-gray-400">   
           <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
             <%= p.title %>
@@ -36,13 +36,9 @@
         <% end %>
       </div>
     
-      <div class="text-gray-800 text-sm font-medium mb-4 text-justify">
+      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
         Aplicar até: <%= l p.limit_bid_date %>
       </div>
-
-      <% if not p.proposals.empty? %>
-        <%= link_to 'Ver propostas', project_proposals_path(p.id), class: 'form-submit-button' %>
-      <% end%>
       </div>   
     </div>
   <% end %>

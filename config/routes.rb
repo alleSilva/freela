@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   
   resources :projects, only: [:index, :show, :new, :create] do
     get 'my_projects', on: :collection
+    get 'proposals', on: :collection
     get 'search', on: :collection
-    resources 'proposals', only: [:create]
+    resources 'proposals', only: [:create, :show, :index], shallow: true
   end
 
-  resources :proposals, only: [:show]
+  #resources :proposals, only: [:show]
   resources :freelancers, only: [:show, :new, :create]
   resources :freelancer_profiles, only: [:show, :new, :create]
   resources :actuation_areas, only: [:show, :new, :create]

@@ -1,3 +1,4 @@
+<% if current_freelancer%>
 <section>
   <h1 class="block text-center text-gray-700 text-xl font-bold mx-4 my-4">Projetos disponíveis</h1>
   <% if @projects.empty? %>
@@ -15,7 +16,7 @@
   
   <% @projects.each do |p| %>
     <div class="transition transform hover:scale-105 motion-reduce:transition-none">
-      <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
+      <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-8 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800 pb-5">
         
         <div class="flex justify-between border-b-2 border-gray-400">   
           <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
@@ -48,10 +49,15 @@
         Aplicar até: <%= l p.limit_bid_date %>
       </div>
 
-      <%= link_to 'Fazer uma proposta', project_path(p.id), class: 'form-submit-button' %>
-
+      <% if current_freelancer.proposals.empty? %>
+        <%= link_to 'Fazer uma proposta', project_path(p.id), class: 'form-submit-button' %>
+      <% else %>
+        <%= link_to 'Ver proposta', root_path, class: 'form-submit-button' %>
+      <% end%>
+        
       </div>
     </div>
   <% end %>
   
 </section>
+<% end %>

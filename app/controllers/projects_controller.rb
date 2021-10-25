@@ -36,6 +36,11 @@ class ProjectsController < ApplicationController
   @projects = current_project_owner.projects
  end
 
+ def project_proposals
+  project = Project.find(current_project_owner.id)
+  @proposals = current_project_owner.projects.find(project.id)
+ end
+
   def search
     @projects = Project.search(params[:search])
 

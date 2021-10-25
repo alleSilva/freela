@@ -5,8 +5,8 @@
             <%= @project.title %>
           </h4>
           
-          <div>
-            <%= number_to_currency @project.max_payment_hour %>
+          <div class="text-gray-800 text-md font-bold">
+            <b>V/H: </b><%= number_to_currency @project.max_payment_hour %>
           </div>
         </div>
         
@@ -27,21 +27,27 @@
         <% end %>
       </div>
     
-      <div class="text-gray-800 text-sm font-medium mb-2 text-justify">
+      <div class="text-gray-800 text-sm font-medium mb-4 text-justify">
         Aplicar até: <%= l @project.limit_bid_date %>
       </div>
-    
-  <div class="border-t-2 border-gray-400 pt-2">
-  <%= form_with model: [@project, @proposal] do |f| %>
-  <%= f.label :resume, 'Por que quero participar do projeto', class: 'form-label' %>
-  <%= f.text_area :resume, class: 'form-text-field' %>
-  <%= f.label :payment_hour, 'Valor da hora de trabalho', class: 'form-label' %>
-  <%= f.number_field :payment_hour, class: 'form-text-field' %>
-  <%= f.label :week_hours, 'Quantidade de horas por semana', class: 'form-label' %>
-  <%= f.number_field :week_hours, class: 'form-text-field' %>
-  <%= f.label :conclusion_date, 'Data de conclusão', class: 'form-label' %>
-  <%= f.date_field :conclusion_date, class: 'form-text-field' %>
-  <%= f.submit 'Enviar Proposta', class: 'form-submit-button mt-4' %>
-  </div>
+
+  <% if not @project.proposals.blank? %>
+    <%= link_to 'Ver propostas', project_proposals_path(@project), class: 'form-submit-button' %>
+  <% end%>
+
+  <% if current_freelancer %>
+    <div class="border-t-2 border-gray-400 pt-2">
+      <%= form_with model: [@project, @proposal] do |f| %>
+      <%= f.label :resume, 'Resumo da proposta', class: 'form-label' %>
+      <%= f.text_area :resume, class: 'form-text-field' %>
+      <%= f.label :payment_hour, 'Valor da hora de trabalho', class: 'form-label' %>
+      <%= f.number_field :payment_hour, class: 'form-text-field' %>
+      <%= f.label :week_hours, 'Quantidade de horas por semana', class: 'form-label' %>
+      <%= f.number_field :week_hours, class: 'form-text-field' %>
+      <%= f.label :conclusion_date, 'Data de conclusão', class: 'form-label' %>
+      <%= f.date_field :conclusion_date, class: 'form-text-field' %>
+      <%= f.submit 'Enviar Proposta', class: 'form-submit-button mt-4' %>
+      </div>
+  <% end %>  
 <% end %>
 </div>

@@ -48,20 +48,4 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
     expect(page).not_to have_content('Api de entregas')
     #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
   end
-
-  it 'and must fill all fields' do
-    project_owner = ProjectOwner.create!(email: 'ale@mail.com.br', password: '123456789')
-
-    login_as project_owner, scope: :project_owner
-    visit root_path
-    click_on 'Publicar projeto'
-    click_on 'Publicar'
-
-    expect(page).to have_content('não pode ficar em branco')
-    #expect(page).to have_content('Título não pode ficar em branco')
-    #expect(page).to have_content('Descrição não pode ficar em branco')
-    expect(Project.count).to eq(0)
-  end
-
-  # TODO: verificar que rooms, daily_rate, bathrooms são maiores que zero
 end

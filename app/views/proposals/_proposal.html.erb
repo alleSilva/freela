@@ -1,0 +1,38 @@
+<div class="transition transform hover:scale-105 motion-reduce:transition-none">
+  <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-4 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
+    <div class="border-b-2 border-gray-400">
+      <div class="flex justify-start items-baseline ">   
+        <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+          Proposta de: 
+        </h4>
+        <div class="py-2 px-2 text-blue-900 font-semibold hover:text-blue-800 transition duration-300">
+          <%= link_to proposal.freelancer.email, freelancer_profile_path(proposal.freelancer) %>
+        </div>
+      </div>
+
+      <div class="flex justify-start items-baseline ">   
+        <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+          Para o projeto: 
+        </h4>
+        <div class="py-2 px-2 text-blue-900 font-semibold hover:text-blue-800 transition duration-300">
+          <%= link_to proposal.project.title, project_path(proposal.project.id) %>
+        </div>
+      </div>
+    </div>
+    
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Resumo:</b> <%= proposal.resume %>
+    </p>
+
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Valor da hora:</b> <%= number_to_currency proposal.payment_hour %>
+    </p>
+
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Quantidade de horas semanais:</b> <%= proposal.week_hours %>
+    </p>  
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Data prevista da entrega:</b> <%= l proposal.conclusion_date %>
+    </p>
+  </div>
+</div>

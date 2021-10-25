@@ -1,5 +1,4 @@
 <h2>Interesse no projeto: <%= @proposal.project.title %> </h2>
-<h2>Dono do projeto: <%= @proposal.project_owner %> </h2>
 <p><%= @proposal.resume %><p>
 
 <h2>Valor da hora trabalhada: </h2>
@@ -10,3 +9,4 @@
 
 <h2>Data prevista para conclusão:</h2>
 <p><%= l @proposal.conclusion_date %><p>
+<h2>Dono do projeto: <%= @proposal.project_owner.email %> </h2>

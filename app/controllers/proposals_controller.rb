@@ -3,6 +3,11 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
   end
 
+  def index
+    project = Project.find(params[:project_id])
+    @proposals = project.proposals.all
+  end
+
   def create
     @proposal = Proposal.new(
       params.require(:proposal).permit(
