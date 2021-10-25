@@ -39,6 +39,7 @@ rails webpacker:install
 - Em seguida executar:
 ```
 rails db:migrate
+rails db:seed
 rails server
 ```
 Acesse a aplicação pelo navegador: digitando http://localhost:3000/ na barra de endereço.
