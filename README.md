@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://freela-web.herokuapp.com/">🔗 Freela</a>
+    <a href="https://freela-web.herokuapp.com/" target="_blank" rel="noopener noreferrer">🔗 Freela</a>
 </h1>
 <p align="center"> Uma plataforma Web que reúne pessoas com projetos, interessadas em contratar profissionais de tecnologia.</p>
 
@@ -34,7 +34,7 @@ bundle install
 ```
 rails webpacker:install
 ```
-pressionar a tecla n para manter o arquivo de config do tailwind css, e tecle Enter
+- Pressionar a tecla n para manter o arquivo de config do tailwind css, e tecle Enter
 
 - Em seguida executar:
 ```
@@ -66,13 +66,13 @@ A aplicação está hospedada no heroku em: https://freela-web.herokuapp.com/
 - [ ] Redirecionar para preenchimento de perfil se não estiver completo 
 - [x] Cadastro de projetos pelo usuário
 - [x] Usuário ver seus projetos
-- [ ] Usuaŕio ver propostas
+- [x] Usuaŕio ver propostas
 - [ ] Aceitar/Recusar proposta
 - [ ] Marcar profissional como destaque
 - [ ] Encerrar inscrições para um projeto
 - [x] Freelancer ver projetos disponíveis
-- [ ] Buscar um projeto
-- [ ] Freelancer faz uma proposta para um projeto
+- [x] Buscar um projeto
+- [x] Freelancer faz uma proposta para um projeto
 - [ ] Cancelar proposta
 - [ ] Vizualizar time do projeto
 - [ ] Dar feedback para projeto
