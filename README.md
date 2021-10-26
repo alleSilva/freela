@@ -44,6 +44,15 @@ rails server
 ```
 Acesse a aplicação pelo navegador: digitando http://localhost:3000/ na barra de endereço.
 
+Existem dois usuários já cadastrados:
+
+```
+Login do project owner: ale@email.com
+
+Login do freelancer: freelancer@email.com
+```
+Mas é possível criar outros usuários
+
 ## ⚙️ Executando os testes
 
 Para executar os testes execute no terminal:
@@ -68,7 +77,7 @@ A aplicação está hospedada no heroku em: https://freela-web.herokuapp.com/
 - [x] Cadastro de projetos pelo usuário
 - [x] Usuário ver seus projetos
 - [x] Usuaŕio ver propostas
-- [ ] Aceitar/Recusar proposta
+- [x] Aceitar/Recusar proposta
 - [ ] Marcar profissional como destaque
 - [ ] Encerrar inscrições para um projeto
 - [x] Freelancer ver projetos disponíveis
