@@ -25,4 +25,16 @@ class ProposalsController < ApplicationController
   
     redirect_to @proposal, notice: 'Proposta enviada com sucesso'
   end
+
+  def accept
+    @proposal = Proposal.find(params[:id])
+    @proposal.accepted!
+    redirect_to @proposal
+  end
+
+  def reject
+    @proposal = Proposal.find(params[:id])
+    @proposal.rejected!
+    redirect_to @proposal
+  end
 end

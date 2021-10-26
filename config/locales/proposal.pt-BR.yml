@@ -1,0 +1,15 @@
+---
+pt-BR:
+  pending: Pendente
+  accepted: Aprovada
+  rejected: Rejeitada
+  activerecord:
+    models:
+      project: Projeto
+    attributes:
+      project:
+        title: Título
+        description: Descrição
+        skills: Habilidades
+        max_payment_hour: Valor máximo da hora a ser paga
+        limit_bid_date: Data limite para aplicação

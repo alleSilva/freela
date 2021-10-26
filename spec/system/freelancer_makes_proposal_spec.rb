@@ -29,6 +29,6 @@ describe 'freelancer makes a proposal' do
     expect(page).to have_content('12/10/2021')
     expect(page).to have_content('R$ 100,00')
     expect(page).to have_content('Proposta enviada com sucesso')
-    expect(page).to have_content('Status: pending')
+    expect(page).to have_content('Status: Pendente')
   end
 end
