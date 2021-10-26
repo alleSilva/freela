@@ -7,7 +7,7 @@ describe 'Visitor log in' do
       click_on 'Entrar'
       click_on 'Entrar e publicar um projeto'
       fill_in 'Email', with: project_owner.email
-      fill_in 'Password', with: project_owner.password
+      fill_in 'Senha', with: project_owner.password
       within 'form' do
         click_on 'Log in'
       end

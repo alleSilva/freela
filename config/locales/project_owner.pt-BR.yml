@@ -1,0 +1,10 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      project_owner: Dono do Projeto
+    attributes:
+      project_owner:
+        password: Senha
+        password_confirmation: Confirmação da Senha
+        remember_me: Lembrar me
