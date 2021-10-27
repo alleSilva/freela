@@ -45,10 +45,6 @@ describe 'Project Owner register project' do
     click_on 'Publicar'
 
     expect(page).to have_content('não pode ficar em branco')
-    #expect(page).to have_content('Título não pode ficar em branco')
-    #expect(page).to have_content('Descrição não pode ficar em branco')
     expect(Project.count).to eq(0)
   end
-
-  # TODO: verificar que rooms, daily_rate, bathrooms são maiores que zero
 end

@@ -51,7 +51,7 @@
       <% if p.proposals.blank? %>
         <%= link_to 'Fazer uma proposta', project_path(p.id), class: 'form-submit-button' %>
       <% else %>
-        <%= link_to 'Ver proposta', root_path, class: 'form-submit-button' %>
+        <%= link_to 'Ver proposta', project_proposals_path(p.id), class: 'form-submit-button' %>
       <% end%>
 
       </div>

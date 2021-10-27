@@ -163,6 +163,11 @@ describe 'project owner views a proposal' do
     click_on 'Meus Projetos'
     click_on 'Ver propostas'
     click_on 'Rejeitar proposta'
+
+    fill_in 'Motivo da recusa', with: 'Fechei contrato com outra pessoa'
+
+    expect(page).to have_content('Proposta recusada, motivo:')
+    expect(page).to have_content('Fechei contrato com outra pessoa')
     
     expect(page).to have_content('Trabalho com rapidez e qualidade')
     expect(page).to have_content('30')

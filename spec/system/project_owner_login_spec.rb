@@ -9,7 +9,7 @@ describe 'Visitor log in' do
       fill_in 'Email', with: project_owner.email
       fill_in 'Senha', with: project_owner.password
       within 'form' do
-        click_on 'Log in'
+        click_on 'Entrar'
       end
 
       expect(page).to have_content('Logado com sucesso')

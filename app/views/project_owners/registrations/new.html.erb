@@ -13,7 +13,7 @@
       <div class="flex ">
       <%= f.label :password, class: "form-label" %>
       <% if @minimum_password_length %>
-        <span class="form-label flex ml-12">(<%= @minimum_password_length %> characters minimum)</span>
+        <span class="form-label flex ml-12">(<%= @minimum_password_length %> caracters no mínimo)</span>
       <% end %>
       </div>
       <%= f.password_field :password, autocomplete: "new-password", class: "form-text-field" %>
