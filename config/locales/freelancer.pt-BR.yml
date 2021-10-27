@@ -1,0 +1,9 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      freelancer: Freelancer
+    attributes:
+      freelancer:
+        password: Senha
+        password_confirmation: Confirmação da Senha

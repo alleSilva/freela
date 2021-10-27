@@ -1,5 +1,5 @@
 <div class="form-border">
-  <h2 class="form-title">Log in</h2>
+  <h2 class="text-gray-800 text-xl font-bold mb-4">Entrar no <span class="text-blue-800 text-2xl font-bold">Freela</span></h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-m-w-content">
@@ -22,7 +22,8 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in", class: "form-submit-button my-2" %>
+        <%= f.submit "Entrar", class: "form-submit-button my-2" %>
+
       </div>
     </div>
   <% end %>

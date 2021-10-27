@@ -42,15 +42,19 @@
     <div class="flex items-end">
       <div class="mb-4">
         <%= f.label :limit_bid_date, 'Aplicar até a data', class: "form-label" %>
-        <%= f.text_field :limit_bid_date, class: "form-text-field-half" %>
+        <%= f.date_field :limit_bid_date, class: "form-text-field" %>
       </div>
 
-      <div class="flex items-center mb-4">
+      <div class="flex items-center ml-2 mb-4">
         <%= f.check_box :remote %>
         <%= f.label :remote, 'Remoto', class: "mx-2" %>
       </div>
     </div>
 
-    <%= f.submit 'Publicar', class: "form-submit-button" %>
+    <% @project.errors.full_messages_for(:limit_bid_date).each do |message| %>
+      <div class="mt-1 text-red-500 mb-2"><%= message %></div>
+    <% end %>
+
+    <%= f.submit 'Publicar', class: "form-submit-button mb-4" %>
   </div>
 <% end %>

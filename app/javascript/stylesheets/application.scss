@@ -34,6 +34,6 @@
 	@apply mx-auto w-full max-w-xs mt-3;
 }
 
-input:checked + svg {
-	display: block;
+.pending-status {
+	@apply bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-md;
 }

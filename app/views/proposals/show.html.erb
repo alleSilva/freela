@@ -1,23 +1,56 @@
-<h2>Interesse no projeto: <%= @proposal.project.title %> </h2>
-<p><%= @proposal.resume %><p>
+<div class="transition transform hover:scale-105 motion-reduce:transition-none">
+  <div class="hover:transform max-w-xs sm:max-w-lg mx-auto mt-4 text-center rounded overflow-hidden shadow-lg p-4 border-solid border-2 border-blue-800">
+    <div class="border-b-2 border-gray-400">
+      <div class="flex justify-start items-baseline ">   
+        <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+          Proposta de: 
+        </h4>
+        <div class="py-2 px-2 text-blue-900 font-semibold hover:text-blue-800 transition duration-300">
+          <%= link_to @proposal.freelancer.email, freelancer_profile_path(@proposal.freelancer) %>
+        </div>
+      </div>
 
-<h2>Valor da hora trabalhada: </h2>
-<p><%= number_to_currency @proposal.payment_hour %><p>
+      <div class="flex justify-start items-baseline ">   
+        <h4 class="text-gray-800 text-md font-bold mb-2 text-left">
+          Para o projeto: 
+        </h4>
+        <div class="py-2 px-2 text-blue-900 font-semibold hover:text-blue-800 transition duration-300">
+          <%= link_to @proposal.project.title, project_path(@proposal.project.id) %>
+        </div>
+      </div>
+    </div>
+    
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Resumo:</b> <%= @proposal.resume %>
+    </p>
 
-<h2>Horas dedicadas na semana: </h2>
-<p><%= @proposal.week_hours %><p>
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Valor da hora:</b> <%= number_to_currency @proposal.payment_hour %>
+    </p>
 
-<h2>Data prevista para conclusão:</h2>
-<p><%= l @proposal.conclusion_date %><p>
-<h2>Dono do projeto: <%= @proposal.project_owner.email %> </h2>
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Quantidade de horas semanais:</b> <%= @proposal.week_hours %>
+    </p>  
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
+      <b>Data prevista da entrega:</b> <%= l @proposal.conclusion_date %>
+    </p>
 
-<p class="text-gray-800 text-sm font-medium my-2 text-justify">
+    <p class="text-gray-800 text-sm font-medium my-2 text-justify">
       <b>Status: </b>
       <% if @proposal.pending? %>
-        <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-md"><%= t @proposal.status %></span>
+        <span class="pending-status"><%= t @proposal.status %></span>
       <% elsif @proposal.accepted? %>
         <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-md"><%= t @proposal.status %></span>
-      <% elsif @proposal.rejected? %>
+      <% elsif @proposal.rejected?%>
         <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-md"><%= t @proposal.status %></span> 
       <% end %>
     </p>
+
+    <% if project_owner_signed_in? && @proposal.project_owner == current_project_owner%>
+      <div class="mt-6 mb-2">
+        <%= link_to 'Aceitar proposta', accept_proposal_path(@proposal.id), method: :post, class: "form-submit-button mr-2" %>
+        <%= link_to 'Rejeitar proposta', reject_proposal_path(@proposal.id), method: :post, class: "form-submit-button ml-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>
