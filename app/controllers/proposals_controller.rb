@@ -1,4 +1,6 @@
 class ProposalsController < ApplicationController
+  before_action :authenticate_users!
+  
   def show
     @proposal = Proposal.find(params[:id])
   end
@@ -21,9 +23,12 @@ class ProposalsController < ApplicationController
     @proposal.freelancer = current_freelancer
     @proposal.project = @project
     @proposal.project_owner = @project.project_owner
-    @proposal.save!
-  
-    redirect_to @proposal, notice: 'Proposta enviada com sucesso'
+    
+    if @proposal.save
+      redirect_to @proposal, notice: 'Proposta enviada com sucesso'
+    else
+      render [@project, @proposal]
+    end
   end
 
   def accept
@@ -36,5 +41,13 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     @proposal.rejected!
     redirect_to @proposal
+  end
+
+  private
+
+  def authenticate_users!
+    return if project_owner_signed_in? || freelancer_signed_in?
+  
+    redirect_to root_path, alert: 'Faça login para ter acesso ao site'
   end
 end
