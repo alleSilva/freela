@@ -5,7 +5,8 @@ describe 'Project Owner register project' do
     # Act 
     visit root_path
     # Assert
-    expect(page).not_to have_link('Registre-se')
+    expect(page).not_to have_link('Publicar projeto')
+    expect(page).not_to have_link('Meus Projetos')
   end
 
   it 'successfully' do
@@ -16,7 +17,6 @@ describe 'Project Owner register project' do
     login_as project_owner, scope: :project_owner
     visit root_path
     click_on 'Publicar projeto'
-    #click_on 'Entrar e publicar um projeto'
 
     fill_in 'Título', with: 'Site institucional'
     fill_in 'Descrição', with: 'Site de escola com várias informações'
@@ -44,7 +44,11 @@ describe 'Project Owner register project' do
     click_on 'Publicar projeto'
     click_on 'Publicar'
 
-    expect(page).to have_content('não pode ficar em branco')
+    expect(page).to have_content('Título não pode ficar em branco')
+    expect(page).to have_content('Descrição não pode ficar em branco')
+    expect(page).to have_content('Habilidades não pode ficar em branco')
+    expect(page).to have_content('Valor máximo da hora a ser paga não pode ficar em branco')
+    expect(page).to have_content('Data limite para aplicação não pode ficar em branco')
     expect(Project.count).to eq(0)
   end
 end

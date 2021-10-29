@@ -5,11 +5,10 @@ pt-BR:
   rejected: Rejeitada
   activerecord:
     models:
-      project: Projeto
+      proposal: Projeto
     attributes:
-      project:
-        title: Título
-        description: Descrição
-        skills: Habilidades
-        max_payment_hour: Valor máximo da hora a ser paga
-        limit_bid_date: Data limite para aplicação
+      proposal:
+        payment_hour: Valor da hora trabalhada
+        week_hours: Horas trabalhadas por semana
+        conclusion_date: Data de conclusão
+        resume: Resumo da porposta

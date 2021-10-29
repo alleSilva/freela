@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 describe 'project owner views a proposal' do
+  it 'must be signed in' do
+    # Act 
+    visit root_path
+    # Assert
+    expect(page).not_to have_link('Publicar projeto')
+    expect(page).not_to have_link('Meus Projetos')
+  end
+
   it 'successfully' do
     freelancer_a = Freelancer.create!(email: 'freelancera@email.com.br', password: '123456')
     freelancer_b = Freelancer.create!(email: 'freelancerb@email.com.br', password: '123456')
@@ -15,7 +23,7 @@ describe 'project owner views a proposal' do
         limit_bid_date: "12/12/2021",
         project_owner: ale
     })
-
+    login_as freelancer_a, scope: :freelancer
     project_iza = Project.create!({
       title: "Landing Page",
       description: "Landing page para divulgação de venda de produtos importados",

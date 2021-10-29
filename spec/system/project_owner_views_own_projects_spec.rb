@@ -1,7 +1,15 @@
 require 'rails_helper'
 
 describe 'Project owner view own projects' do
-  it 'using link' do
+  it 'must be signed in' do
+    # Act 
+    visit root_path
+    # Assert
+    expect(page).not_to have_link('Publicar projeto')
+    expect(page).not_to have_link('Meus Projetos')
+  end
+
+  it 'using link Meus projetos' do
     project_owner = ProjectOwner.create!(email: 'ale@email.com.br', password: '123456')
   
     login_as project_owner, scope: :project_owner

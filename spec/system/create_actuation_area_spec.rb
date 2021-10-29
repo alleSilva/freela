@@ -43,7 +43,7 @@ describe 'Create a actuation area' do
       fill_in 'Área de Atuação', with: 'front end'
 
       click_on 'Salvar'
-
+      fill_in 'Área de Atuação', with: 'front end'
       click_on 'Salvar'
 
       expect(page).to have_content('Nome já está em uso')

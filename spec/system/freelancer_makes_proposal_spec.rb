@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe 'freelancer makes a proposal' do
+  it 'must be signed in' do
+
+    visit root_path
+
+    expect(page).not_to have_link('Ver projetos')
+  end
+  
   it 'successfully' do
     freelancer = Freelancer.create!(email: 'freelancer@email.com.br', password: '123456')
     owner = ProjectOwner.create!(email: 'owner@email.com.br', password: '123456')
