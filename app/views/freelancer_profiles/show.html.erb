@@ -6,14 +6,15 @@
   <image src="<%=(url_for(@freelancer_profile.image))%>">
 <% end %>
 </div>
-
-<h4>Nome completo: <%= @freelancer_profile.name %></h4>
-<h4>Nome Social: <%= @freelancer_profile.social_name %></h4>
-<h4>Data de Nascimento: <%= l @freelancer_profile.birth_date %></h4>
-<h4>Descrição: <%= @freelancer_profile.description %></h4>
-<h4>Formação: <%= @freelancer_profile.education %></h4>
-<h4>Experiência: <%= @freelancer_profile.experience %></h4>
-<h4>Área de atuação: <%= @freelancer_profile.actuation_area.name %></h4>
+<% if freelancer_signed_in? && @freelancer_profile.freelancer == current_freelancer %>
+  <h4>Nome completo: <%= @freelancer_profile.name %></h4>
+  <h4>Nome Social: <%= @freelancer_profile.social_name %></h4>
+  <h4>Data de Nascimento: <%= l @freelancer_profile.birth_date %></h4>
+  <h4>Descrição: <%= @freelancer_profile.description %></h4>
+  <h4>Formação: <%= @freelancer_profile.education %></h4>
+  <h4>Experiência: <%= @freelancer_profile.experience %></h4>
+  <h4>Área de atuação: <%= @freelancer_profile.actuation_area.name %></h4>
+<% end %>
 
 
 

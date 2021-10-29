@@ -4,11 +4,11 @@ describe 'User is not authenticated' do
   it 'and cannot open form to create a project' do
     get '/projects/new'
 
-    expect(response).to redirect_to(new_project_owner_session_path) 
+    expect(response).not_to redirect_to(new_project_path) 
   end
   it 'and cannot create a project' do
     post '/projects'
 
-    expect(response).to redirect_to(new_project_owner_session_path) 
+    expect(response).not_to redirect_to(projects_path) 
   end
 end

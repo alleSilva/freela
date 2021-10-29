@@ -1,5 +1,7 @@
 class FreelancerProfilesController < ApplicationController
-  #before_action :authenticate_freelancer!, only: [:new, :create]
+  before_action :authenticate_users!
+  before_action :authenticate_freelancer!, only: [:new, :create]
+
   def show
     @freelancer_profile = FreelancerProfile.find(params[:id])
   end
@@ -27,5 +29,11 @@ class FreelancerProfilesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def authenticate_users!
+    return if project_owner_signed_in? || freelancer_signed_in?
+  
+    redirect_to root_path, alert: 'Faça login para ter acesso ao site'
   end
 end
