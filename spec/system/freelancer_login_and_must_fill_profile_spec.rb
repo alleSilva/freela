@@ -14,7 +14,7 @@ describe 'Visitor log in' do
       fill_in 'Formação', with: 'Sistemas de informação'
       fill_in 'Experiência', with: '5 anos em ruby on rails'
       select 'Front End', from: 'Área de atuação'
-      attach_file 'Foto de Perfil', 'tmp/storage/foto.png'
+      attach_file 'Foto de Perfil', 'app/assets/images/foto.png'
 
       click_on 'Salvar'
       #expect(page).to have_content(freelancer.email)

@@ -1,0 +1,8 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      actuation_area: Area de atuação
+    attributes:
+      actuation_area:
+        name: Nome

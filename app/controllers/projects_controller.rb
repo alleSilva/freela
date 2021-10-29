@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_users!
+
   def index
     @projects = Project.search(params[:search])
 
@@ -44,5 +46,13 @@ class ProjectsController < ApplicationController
   def search
     @projects = Project.search(params[:search])
 
+  end
+
+  private
+
+  def authenticate_users!
+    return if project_owner_signed_in? || freelancer_signed_in?
+  
+    redirect_to root_path, alert: 'Faça login para ter acesso ao site'
   end
 end
