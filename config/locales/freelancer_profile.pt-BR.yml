@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      freelancer_profile: Projeto
+    attributes:
+      freelancer_profile:
+        name: Nome
+        social_name: Nome Social
+        birth_date: Data de nascimento
+        description: Descrição
+        experience: Experiência
+        education: Formação

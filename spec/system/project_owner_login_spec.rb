@@ -1,5 +1,5 @@
-describe 'Visitor log in' do
-  context 'as project owner' do
+describe 'Visitor' do
+  context 'log in as project owner' do
     it 'successfully' do
       project_owner = ProjectOwner.create!(email: 'ale@mail.com.br', password: '123456')
 
@@ -17,6 +17,19 @@ describe 'Visitor log in' do
       expect(page).to have_link('Logout')
       expect(page).not_to have_link('Entrar')
       expect(page).to have_link('Publicar projeto')
+    end
+  end
+
+  context 'try to login without fill fields' do
+    it 'no success' do
+      visit root_path
+      click_on 'Entrar'
+      click_on 'Entrar e publicar um projeto'
+      within 'form' do
+        click_on 'Entrar'
+      end
+
+      expect(page).to have_content('Email ou senha inválidos.')
     end
   end
 end

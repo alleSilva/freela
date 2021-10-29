@@ -12,7 +12,11 @@
         <%= link_to 'Logout', destroy_project_owner_session_path, method: :delete, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
       <% elsif current_freelancer %>
         <%= link_to 'Ver projetos', projects_path, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
-        <%= current_freelancer.email %>
+        <% if not current_freelancer.freelancer_profile.blank? %>
+          <%= link_to current_freelancer.email, freelancer_profile_path(current_freelancer.id), class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
+        <% else%>
+          <%= current_freelancer.email %>
+        <% end %>
         <%= link_to 'Logout', destroy_project_owner_session_path, method: :delete, class: "py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300" %>
       <% else %>
         <div class="md:flex items-center space-x-1">
