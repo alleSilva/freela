@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Proposal, type: :model do
-  include ActiveSupport::Testing::TimeHelpers
+
   describe '#valid?' do
     context 'should not be valid' do
       it 'date of apply is greater than date bid limit' do
@@ -18,10 +18,10 @@ RSpec.describe Proposal, type: :model do
           project_owner: owner
         })
 
-        proposal= Proposal.create!({
+        proposal= Proposal.new({
           payment_hour: 100,
           week_hours: 30,
-          conclusion_date: 60.day.from_now,
+          conclusion_date: 5.day.from_now,
           resume: 'Trabalho com rapidez e qualidade',
           project: project,
           project_owner: owner,
@@ -30,7 +30,7 @@ RSpec.describe Proposal, type: :model do
 
         proposal.valid?
 
-        expect(proposal.errors[:conclusion_date]).to include('nao pode ser menor que a data de aplicação')
+        expect(proposal.errors[:conclusion_date]).to include("não pode ser menor que a data de aplicação")
       end
     end
   end

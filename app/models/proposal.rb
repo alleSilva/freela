@@ -8,11 +8,9 @@ class Proposal < ApplicationRecord
 
   enum status: {pending: 5, accepted: 10, rejected: 20}
   
-  private
-
   def conclusion_date_greater_aplication_date
     if conclusion_date < project.limit_bid_date
-      errors.add(:conclusion_date, 'nao pode ser menor que a data de aplicação')
+      errors.add(:conclusion_date, "não pode ser menor que a data de aplicação")
     end
   end
 end
