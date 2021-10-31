@@ -9,7 +9,7 @@ describe 'Visitor log in' do
 
       fill_in 'Nome completo', with: 'Alesandro Silva'
       fill_in 'Nome Social', with: 'Ale Silva'
-      fill_in 'Data de Nascimento', with: '20/11/2021'
+      fill_in 'Data de Nascimento', with: '20/11/1986'
       fill_in 'Descrição', with: 'Sou profissional com ampla exeperiencia em sistemas'
       fill_in 'Formação', with: 'Sistemas de informação'
       fill_in 'Experiência', with: '5 anos em ruby on rails'
@@ -22,7 +22,7 @@ describe 'Visitor log in' do
       expect(page).to have_content('Perfil')
       expect(page).to have_content('Nome completo: Alesandro Silva')
       expect(page).to have_content('Nome Social: Ale Silva')
-      expect(page).to have_content('Data de Nascimento: 20/11/2021')
+      expect(page).to have_content('Data de Nascimento: 20/11/1986')
       expect(page).to have_content('Descrição: Sou profissional com ampla exeperiencia em sistemas')
       expect(page).to have_content('Formação: Sistemas de informação')
       expect(page).to have_content('Experiência: 5 anos em ruby on rails')

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'Project owner view own projects' do
+  limit_date = "#{I18n.l Date.today.advance({days: 7})}"
+
   it 'must be signed in' do
     # Act 
     visit root_path
@@ -29,7 +31,7 @@ describe 'Project owner view own projects' do
        skills: 'html, css, javascript',
        max_payment_hour: 50,
        remote: true,
-       limit_bid_date: '01/11/2021',
+       limit_bid_date: limit_date,
        project_owner: ale
     })
 
@@ -39,7 +41,7 @@ describe 'Project owner view own projects' do
        skills: 'ruby, ruby on rails, json',
        max_payment_hour: 100,
        remote: true,
-       limit_bid_date: '01/12/2021',
+       limit_bid_date: limit_date,
        project_owner: iza
     })
 
@@ -85,7 +87,7 @@ describe 'Project owner view own projects' do
        skills: 'html, css, javascript',
        max_payment_hour: 50,
        remote: true,
-       limit_bid_date: '01/12/2021',
+       limit_bid_date: limit_date,
        project_owner: ale
     })
 
@@ -95,7 +97,7 @@ describe 'Project owner view own projects' do
        skills: 'ruby, ruby on rails, json',
        max_payment_hour: 100,
        remote: true,
-       limit_bid_date: '11/12/2021',
+       limit_bid_date: limit_date,
        project_owner: iza
     })
 

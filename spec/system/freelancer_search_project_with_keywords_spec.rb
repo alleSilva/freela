@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'Authenticated Freelancer search projects with especific keywords' do
+  limit_date = "#{I18n.l(Date.today.advance({days: 7}))}"
+
   it 'must be signed in' do
   
     visit root_path
@@ -19,7 +21,7 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
         skills: "Javascript, Html, Css",
         max_payment_hour: 50,
         remote: true,
-        limit_bid_date: "02/11/2021",
+        limit_bid_date: limit_date,
         project_owner: owner
     })
 
@@ -31,7 +33,7 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
         skills: "Ruby, SQL, Json",
         max_payment_hour: 100,
         remote: true,
-        limit_bid_date: "22/01/2021",
+        limit_bid_date: limit_date,
         project_owner: owner
     })
       
@@ -52,7 +54,7 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
     expect(page).to have_content("Javascript, Html, Css")
     expect(page).to have_content("R$ 50,00")
     expect(page).to have_content("Remoto: Sim")
-    expect(page).to have_content("Aplicar até: 02/11/2021")
+    expect(page).to have_content("Aplicar até: #{limit_date}")
     expect(page).not_to have_content('Api de entregas')
     #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
   end
@@ -67,7 +69,7 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
         skills: "Javascript, Html, Css",
         max_payment_hour: 50,
         remote: true,
-        limit_bid_date: "02/11/2021",
+        limit_bid_date: limit_date,
         project_owner: owner
     })
 
@@ -88,6 +90,6 @@ describe 'Authenticated Freelancer search projects with especific keywords' do
     expect(page).not_to have_content("Javascript, Html, Css")
     expect(page).not_to have_content("R$ 50,00")
     expect(page).not_to have_content("Remoto: Sim")
-    expect(page).not_to have_content("Aplicar até: 02/11/2021")
+    expect(page).not_to have_content("Aplicar até: #{limit_date}")
   end
 end

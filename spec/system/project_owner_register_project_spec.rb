@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'Project Owner register project' do
+  limit_date = "#{I18n.l(Date.today.advance({days: 7}))}"
+
   it 'must be signed in' do
     # Act 
     visit root_path
@@ -23,7 +25,7 @@ describe 'Project Owner register project' do
     fill_in 'Habilidades', with: 'Javascript, Html, Css'
     fill_in 'Valor máximo da hora a ser paga', with: '50'
     check 'Remoto'
-    fill_in 'Aplicar até', with: '02/11/2021'
+    fill_in 'Aplicar até', with: limit_date
     click_on 'Publicar'
 
     #Assert
@@ -32,7 +34,7 @@ describe 'Project Owner register project' do
     expect(page).to have_content("Javascript, Html, Css")
     expect(page).to have_content("R$ 50,00")
     expect(page).to have_content("Remoto: Sim")
-    expect(page).to have_content("Aplicar até: 02/11/2021")
+    expect(page).to have_content("Aplicar até: #{limit_date}")
     #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
   end
 
@@ -42,6 +44,7 @@ describe 'Project Owner register project' do
     login_as project_owner, scope: :project_owner
     visit root_path
     click_on 'Publicar projeto'
+
     click_on 'Publicar'
 
     expect(page).to have_content('Título não pode ficar em branco')

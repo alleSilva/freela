@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Proposal, type: :model do
-
   describe '#valid?' do
     context 'should not be valid' do
-      it 'date of apply is greater than date bid limit' do
+      it 'date of conclusion is lower than date bid limit' do
         freelancer = Freelancer.create!(email: 'freelancer@email.com.br', password: '123456')
         owner = ProjectOwner.create!(email: 'owner@email.com.br', password: '123456')
         
