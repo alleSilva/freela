@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_users!
   before_action :authenticate_project_owner!, only: [:new, :create]
-  
 
   def index
     @projects = Project.search(params[:search])

@@ -23,6 +23,7 @@ describe 'project owner views a proposal' do
         limit_bid_date: "12/12/2021",
         project_owner: ale
     })
+    
     login_as freelancer_a, scope: :freelancer
     project_iza = Project.create!({
       title: "Landing Page",
@@ -44,6 +45,7 @@ describe 'project owner views a proposal' do
       freelancer: freelancer_a
     })
 
+    login_as freelancer_b, scope: :freelancer
     proposal_b = Proposal.create!({
       payment_hour: 90,
       week_hours: 20,

@@ -18,7 +18,7 @@ class Project < ApplicationRecord
       if limit_bid_date < Date.today
         errors.add(:limit_bid_date, "não pode está em datas passadas")
       end
-    rescue 
+    rescue
       return
     end
   end
