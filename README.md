@@ -48,8 +48,10 @@ Existem dois usuários já cadastrados:
 
 ```
 Login do project owner: ale@email.com
+Senha do project owner: 123456
 
 Login do freelancer: freelancer@email.com
+Senha do freelancer: 123456
 ```
 Mas é possível criar outros usuários
 
@@ -73,7 +75,7 @@ A aplicação está hospedada no heroku em: https://freela-web.herokuapp.com/
 - [x] Cadastro de usuário
 - [x] Cadastro de Profissionais
 - [x] Preenchimento de perfil do Profisional
-- [ ] Redirecionar para preenchimento de perfil se não estiver completo 
+- [x] Redirecionar para preenchimento de perfil se não estiver completo 
 - [x] Cadastro de projetos pelo usuário
 - [x] Usuário ver seus projetos
 - [x] Usuaŕio ver propostas

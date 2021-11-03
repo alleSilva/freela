@@ -32,7 +32,7 @@ describe 'Freelancer is authenticated' do
     expect(response).not_to redirect_to('/proposals/1') 
   end
 
-  it 'and cannot accept a proposal' do
+  it 'and cannot reject a proposal' do
     owner = ProjectOwner.create!(email: 'owner@email.com.br', password: '123456')
     freelancer = Freelancer.create!(email: 'freelancer1@email.com.br', password: '123456')
     project = Project.create!({
