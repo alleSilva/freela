@@ -14,12 +14,8 @@ class Project < ApplicationRecord
   end
   
   def limit_bid_date_in_the_future
-    begin
-      if limit_bid_date < Date.today
-        errors.add(:limit_bid_date, "não pode está em datas passadas")
-      end
-    rescue
-      return
+    if limit_bid_date && limit_bid_date < Date.today
+      errors.add(:limit_bid_date, "não pode está em datas passadas")
     end
   end
 end
