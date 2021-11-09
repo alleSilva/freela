@@ -18,8 +18,13 @@ Rails.application.routes.draw do
     end
   end
 
-  #resources :proposals, only: [:show]
   resources :freelancers, only: [:show, :new, :create]
   resources :freelancer_profiles, only: [:show, :new, :create]
   resources :actuation_areas, only: [:show, :new, :create]
+
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: [:index]
+    end
+  end
 end
