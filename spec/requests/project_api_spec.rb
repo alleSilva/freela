@@ -23,7 +23,8 @@ describe 'Project API' do
       )
 
       get '/api/v1/projects'
-
+      
+      parsed_body = JSON.parse(response.body, symbolize_names: true)
       expect(response).to have_http_status(200)
       expect(parsed_body.first[:title]).to eq('Api de fastfood')
       expect(parsed_body.second[:title]).to eq('Loja virtual')
