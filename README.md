@@ -88,6 +88,7 @@ A aplicação está hospedada no heroku em: https://freela-web.herokuapp.com/
 - [ ] Cancelar proposta
 - [ ] Vizualizar time do projeto
 - [ ] Dar feedback para projeto
+- [ ] Expor api
 
 ## 🛠️ Construído com
 
