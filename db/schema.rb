@@ -10,128 +10,132 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_025_151_036) do
-  create_table 'active_storage_attachments', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'record_type', null: false
-    t.integer 'record_id', null: false
-    t.integer 'blob_id', null: false
-    t.datetime 'created_at', null: false
-    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
-    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
-                                                    unique: true
+ActiveRecord::Schema.define(version: 2021_10_25_151036) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table 'active_storage_blobs', force: :cascade do |t|
-    t.string 'key', null: false
-    t.string 'filename', null: false
-    t.string 'content_type'
-    t.text 'metadata'
-    t.string 'service_name', null: false
-    t.bigint 'byte_size', null: false
-    t.string 'checksum', null: false
-    t.datetime 'created_at', null: false
-    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table 'active_storage_variant_records', force: :cascade do |t|
-    t.integer 'blob_id', null: false
-    t.string 'variation_digest', null: false
-    t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.integer "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table 'actuation_areas', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "actuation_areas", force: :cascade do |t|
+    t.string "name"
+    t.integer "freelancer_profiles_id", null: false
+    t.integer "actuation_area_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"name\", \"freelancer_profile_id\"", name: "index_actuation_areas_on_name_and_freelancer_profile_id", unique: true
+    t.index ["actuation_area_id"], name: "index_actuation_areas_on_actuation_area_id"
+    t.index ["freelancer_profiles_id"], name: "index_actuation_areas_on_freelancer_profiles_id"
   end
 
-  create_table 'admins', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_admins_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_admins_on_reset_password_token', unique: true
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table 'freelancer_profiles', force: :cascade do |t|
-    t.string 'name'
-    t.string 'social_name'
-    t.text 'education'
-    t.date 'birth_date'
-    t.text 'description'
-    t.text 'experience'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'actuation_area_id', null: false
-    t.integer 'freelancer_id', null: false
-    t.index ['actuation_area_id'], name: 'index_freelancer_profiles_on_actuation_area_id'
-    t.index ['freelancer_id'], name: 'index_freelancer_profiles_on_freelancer_id'
+  create_table "freelancer_profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "social_name"
+    t.text "education"
+    t.date "birth_date"
+    t.text "description"
+    t.text "experience"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "freelancer_id", null: false
+    t.index ["freelancer_id"], name: "index_freelancer_profiles_on_freelancer_id"
   end
 
-  create_table 'freelancers', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_freelancers_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_freelancers_on_reset_password_token', unique: true
+  create_table "freelancers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_freelancers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_freelancers_on_reset_password_token", unique: true
   end
 
-  create_table 'project_owners', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_project_owners_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_project_owners_on_reset_password_token', unique: true
+  create_table "project_owners", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_project_owners_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_project_owners_on_reset_password_token", unique: true
   end
 
-  create_table 'projects', force: :cascade do |t|
-    t.string 'title'
-    t.text 'description'
-    t.string 'skills'
-    t.decimal 'max_payment_hour'
-    t.boolean 'remote'
-    t.date 'limit_bid_date'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'project_owner_id', null: false
-    t.index ['project_owner_id'], name: 'index_projects_on_project_owner_id'
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "skills"
+    t.decimal "max_payment_hour"
+    t.boolean "remote"
+    t.date "limit_bid_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "project_owner_id", null: false
+    t.index ["project_owner_id"], name: "index_projects_on_project_owner_id"
   end
 
-  create_table 'proposals', force: :cascade do |t|
-    t.decimal 'payment_hour'
-    t.integer 'week_hours'
-    t.date 'conclusion_date'
-    t.text 'resume'
-    t.integer 'project_id', null: false
-    t.integer 'project_owner_id', null: false
-    t.integer 'freelancer_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'status', default: 5
-    t.index ['freelancer_id'], name: 'index_proposals_on_freelancer_id'
-    t.index ['project_id'], name: 'index_proposals_on_project_id'
-    t.index ['project_owner_id'], name: 'index_proposals_on_project_owner_id'
+  create_table "proposals", force: :cascade do |t|
+    t.decimal "payment_hour"
+    t.integer "week_hours"
+    t.date "conclusion_date"
+    t.text "resume"
+    t.integer "project_id", null: false
+    t.integer "project_owner_id", null: false
+    t.integer "freelancer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 5
+    t.index ["freelancer_id"], name: "index_proposals_on_freelancer_id"
+    t.index ["project_id"], name: "index_proposals_on_project_id"
+    t.index ["project_owner_id"], name: "index_proposals_on_project_owner_id"
   end
 
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'freelancer_profiles', 'actuation_areas'
-  add_foreign_key 'freelancer_profiles', 'freelancers'
-  add_foreign_key 'projects', 'project_owners'
-  add_foreign_key 'proposals', 'freelancers'
-  add_foreign_key 'proposals', 'project_owners'
-  add_foreign_key 'proposals', 'projects'
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "actuation_areas", "actuation_areas"
+  add_foreign_key "actuation_areas", "freelancer_profiles", column: "freelancer_profiles_id"
+  add_foreign_key "freelancer_profiles", "freelancers"
+  add_foreign_key "projects", "project_owners"
+  add_foreign_key "proposals", "freelancers"
+  add_foreign_key "proposals", "project_owners"
+  add_foreign_key "proposals", "projects"
 end
