@@ -1,4 +1,3 @@
 require 'rails_helper'
 
-RSpec.describe ActuationArea, type: :model do
-end
+RSpec.describe ActuationArea, type: :model

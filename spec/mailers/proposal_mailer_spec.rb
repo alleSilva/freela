@@ -1,21 +1,21 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ProposalMailer, type: :mailer do
   context 'new proposal' do
     it 'should notify project owner' do
       freelancer = create(:freelancer)
       project_owner = create(:project_owner)
-       
+
       project = create(
         :project,
-        title: "Api de entregas",
-        description: "Api para servir de backend para aplicativo",
-        skills: "Ruby, SQL, Json",
+        title: 'Api de entregas',
+        description: 'Api para servir de backend para aplicativo',
+        skills: 'Ruby, SQL, Json',
         project_owner: project_owner
       )
-      
+
       login_as freelancer, scope: :freelancer
-      
+
       proposal = create(
         :proposal,
         resume: 'Trabalho com rapidez e qualidade',
@@ -24,7 +24,7 @@ RSpec.describe ProposalMailer, type: :mailer do
         freelancer: freelancer
       )
 
-      mail = ProposalMailer.with(proposal: proposal).notify_new_proposal()
+      mail = ProposalMailer.with(proposal: proposal).notify_new_proposal
 
       expect(mail.to).to eq ['ale@email.com']
       expect(mail.from).to eq ['no-reply@freela.com']

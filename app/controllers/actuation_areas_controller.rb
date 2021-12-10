@@ -21,7 +21,7 @@ class ActuationAreasController < ApplicationController
 
   def should_authenticate!
     return if project_owner_signed_in?
-  
+
     redirect_to root_path, alert: 'Faça login para ter acesso ao site'
   end
 end

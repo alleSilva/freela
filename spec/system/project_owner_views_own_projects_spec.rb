@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe 'Project owner view own projects' do
-
   it 'must be signed in' do
-    
     visit root_path
 
     expect(page).not_to have_link('Publicar projeto')
@@ -12,7 +10,7 @@ describe 'Project owner view own projects' do
 
   it 'using link Meus projetos' do
     project_owner = create(:project_owner)
-  
+
     login_as project_owner, scope: :project_owner
     visit root_path
 
@@ -20,13 +18,12 @@ describe 'Project owner view own projects' do
   end
 
   it 'and should view owned projects' do
-   
     ale = create(:project_owner)
     iza = create(:project_owner, email: 'iza@mail.com.br')
 
-    ale_project = create(:project, project_owner: ale)
+    _ale_project = create(:project, project_owner: ale)
 
-    iza_project = create(
+    _iza_project = create(
       :project,
       title: 'Ruby on rails api',
       description: 'api to serve app',
@@ -34,11 +31,9 @@ describe 'Project owner view own projects' do
       project_owner: iza
     )
 
-  
     login_as ale, scope: :project_owner
     visit root_path
     click_on 'Meus Projetos'
-
 
     expect(page).to have_content 'Loja virtual'
     expect(page).not_to have_content 'Ruby on rails api'
@@ -58,7 +53,7 @@ describe 'Project owner view own projects' do
 
   it 'using link' do
     project_owner = create(:project_owner)
-  
+
     login_as project_owner, scope: :project_owner
     visit root_path
 
@@ -75,33 +70,32 @@ describe 'Project owner view own projects' do
       title: 'Landing Page',
       description: 'Landing page para promoção e venda de produtos de beleza',
       skills: 'html, css, javascript',
-      project_owner: ale,
+      project_owner: ale
     )
 
-    iza_project = create(
+    _iza_project = create(
       :project,
       title: 'Ruby on rails api',
       description: 'api to serve app',
       skills: 'ruby, ruby on rails, json',
-      project_owner: iza)
+      project_owner: iza
+    )
 
-    proposal = create(
+    _proposal = create(
       :proposal,
       resume: 'Tenho experiência com sites',
       project: ale_project,
       project_owner: ale,
       freelancer: freelancer
     )
-  
+
     login_as ale, scope: :project_owner
     visit root_path
     click_on 'Meus Projetos'
-
 
     expect(page).to have_content 'Landing Page'
     expect(page).not_to have_content 'Ruby on rails api'
     expect(page).not_to have_content('Resumo da proposta')
     expect(page).to have_link 'Ver propostas'
   end
-  
 end
