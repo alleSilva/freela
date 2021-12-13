@@ -1,12 +1,35 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/alesandro/freela/app/mailers/proposal_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/alesandro/freela/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/alesandro/freela/app/models/actuation_area.rb": {
         "lines": [
           1,
           1,
           1,
-          null,
           null
         ]
       },
@@ -39,9 +62,7 @@
           null,
           null,
           1,
-          22,
-          1,
-          null,
+          25,
           null,
           null
         ]
@@ -58,9 +79,9 @@
           1,
           null,
           1,
-          12,
-          1,
+          13,
           null,
+          1,
           null,
           null
         ]
@@ -83,13 +104,6 @@
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           1,
           1,
@@ -121,6 +135,15 @@
           null,
           0,
           null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -151,21 +174,13 @@
           2,
           2,
           null,
-          1,
-          2,
-          null,
           null,
           1,
           2,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          2,
           null,
           2,
           null,
@@ -189,13 +204,37 @@
           2,
           null,
           null,
-          null,
           1,
           null,
           1,
           22,
           null,
           3,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/alesandro/freela/app/controllers/api/v1/projects_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null,
           null
         ]
@@ -235,7 +274,6 @@
         "lines": [
           1,
           1,
-          null,
           null
         ]
       },
@@ -256,17 +294,7 @@
           1,
           2,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           2,
-          null,
           2,
           1,
           null,
@@ -279,14 +307,27 @@
           null,
           0,
           null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/home/alesandro/freela/app/controllers/sign_in_controller.rb": {
+      "/home/alesandro/freela/app/controllers/auth_controller.rb": {
         "lines": [
           1,
           1,
-          null,
+          1,
           null
         ]
       },
@@ -295,16 +336,6 @@
           0,
           0,
           null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/alesandro/freela/app/controllers/sign_up_controller.rb": {
-        "lines": [
           0,
           0,
           0,
@@ -329,16 +360,6 @@
           null,
           null,
           null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/alesandro/freela/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
           0
         ],
         "branches": {
@@ -395,6 +416,6 @@
         }
       }
     },
-    "timestamp": 1636034721
+    "timestamp": 1639403066
   }
 }

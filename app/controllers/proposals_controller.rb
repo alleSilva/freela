@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   before_action :authenticate_users!
   before_action :authenticate_freelancer!, only: [:create]
-  before_action :authenticate_project_owner!, only: [:accept, :reject]
+  before_action :authenticate_project_owner!, only: %i[accept reject]
 
   def show
     @proposal = Proposal.find(params[:id])
@@ -13,19 +13,12 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(
-      params.require(:proposal).permit(
-        :payment_hour,
-        :week_hours,
-        :conclusion_date,
-        :resume
-      )
-    )
+    @proposal = Proposal.new(proposal_params)
     @project = Project.find(params[:project_id])
     @proposal.freelancer = current_freelancer
     @proposal.project = @project
     @proposal.project_owner = @project.project_owner
-    
+
     if @proposal.save
       redirect_to @proposal, notice: 'Proposta enviada com sucesso'
     else
@@ -49,7 +42,16 @@ class ProposalsController < ApplicationController
 
   def authenticate_users!
     return if project_owner_signed_in? || freelancer_signed_in?
-  
+
     redirect_to root_path, alert: 'Faça login para ter acesso ao site'
+  end
+
+  def proposal_params
+    params.require(:proposal).permit(
+      :payment_hour,
+      :week_hours,
+      :conclusion_date,
+      :resume
+    )
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_151036) do
+ActiveRecord::Schema.define(version: 2021_12_12_213030) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_151036) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_actuation_areas_on_name", unique: true
   end
 
   create_table "admins", force: :cascade do |t|
@@ -67,8 +68,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_151036) do
     t.text "experience"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "actuation_area_id", null: false
     t.integer "freelancer_id", null: false
+    t.integer "actuation_area_id", null: false
     t.index ["actuation_area_id"], name: "index_freelancer_profiles_on_actuation_area_id"
     t.index ["freelancer_id"], name: "index_freelancer_profiles_on_freelancer_id"
   end

@@ -2,7 +2,7 @@ describe 'Visitor log in' do
   context 'as freelancer and must to fill profile completely' do
     it 'successfully' do
       freelancer = Freelancer.create!(email: 'lele@mail.com.br', password: '123456')
-      actuation_area = ActuationArea.create!(name: 'Front End')
+      _actuation_area = ActuationArea.create!(name: 'Front End')
       login_as freelancer, scope: :freelancer
 
       visit new_freelancer_profile_path
@@ -17,7 +17,7 @@ describe 'Visitor log in' do
       attach_file 'Foto de Perfil', 'app/assets/images/foto.png'
 
       click_on 'Salvar'
-      #expect(page).to have_content(freelancer.email)
+      # expect(page).to have_content(freelancer.email)
       expect(page).to have_content('Boas vindas! Mantenha seu perfil sempre atualizado')
       expect(page).to have_content('Perfil')
       expect(page).to have_content('Nome completo: Alesandro Silva')
@@ -31,13 +31,13 @@ describe 'Visitor log in' do
 
     it 'and try to send empty profile' do
       freelancer = Freelancer.create!(email: 'lele@mail.com.br', password: '123456')
-      actuation_area = ActuationArea.create!(name: 'Front End')
+      _actuation_area = ActuationArea.create!(name: 'Front End')
       login_as freelancer, scope: :freelancer
 
       visit new_freelancer_profile_path
 
       click_on 'Salvar'
-      #expect(page).to have_content(freelancer.email)
+      # expect(page).to have_content(freelancer.email)
       expect(page).to have_content('Nome não pode ficar em branco')
       expect(page).to have_content('Nome Social não pode ficar em branco')
       expect(page).to have_content('Data de nascimento não pode ficar em branco')
@@ -63,7 +63,7 @@ describe 'Visitor log in' do
   context 'when login without filled profile previously' do
     it 'is redirected to profile form' do
       freelancer = Freelancer.create!(email: 'lele@mail.com.br', password: '123456')
-      
+
       visit root_path
       click_on 'Entrar'
       click_on 'Entrar como freelancer'
@@ -76,5 +76,4 @@ describe 'Visitor log in' do
       expect(page).to have_content('Mantenha seu perfil sempre atualizado')
     end
   end
-
 end

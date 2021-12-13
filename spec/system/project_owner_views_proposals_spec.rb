@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'project owner views a proposal' do
-  conclusion_date = "#{I18n.l(Date.today.advance({days: 30}))}"
+  conclusion_date = I18n.l(Time.zone.today.advance({ days: 30 })).to_s
   it 'must be signed in' do
     visit root_path
 
@@ -11,29 +11,29 @@ describe 'project owner views a proposal' do
 
   it 'successfully' do
     freelancer_a = create(:freelancer, email: 'freelancera@email.com.br')
-    freelancer_b = create(:freelancer,email: 'freelancerb@email.com.br')
+    freelancer_b = create(:freelancer, email: 'freelancerb@email.com.br')
     ale = create(:project_owner)
     iza = create(:project_owner, email: 'iza@email.com.br')
 
     project_ale = create(
       :project,
-      title: "Api de entregas",
-      description: "Api para servir de backend para aplicativo",
-      skills: "Ruby, SQL, Json",
+      title: 'Api de entregas',
+      description: 'Api para servir de backend para aplicativo',
+      skills: 'Ruby, SQL, Json',
       project_owner: ale
     )
-    
+
     login_as freelancer_a, scope: :freelancer
-    
+
     project_iza = create(
       :project,
       title: 'Landing Page',
       description: 'Landing page para divulgação de venda de produtos importados',
       skills: 'html, css, javascript',
       project_owner: iza
-  )
+    )
 
-    proposal_a = create(
+    _proposal_a = create(
       :proposal,
       resume: 'Trabalho com rapidez e qualidade',
       project: project_ale,
@@ -42,7 +42,7 @@ describe 'project owner views a proposal' do
     )
 
     login_as freelancer_b, scope: :freelancer
-    proposal_b = create(
+    _proposal_b = create(
       :proposal,
       resume: 'Tenho experiência com api',
       project: project_ale,
@@ -50,7 +50,7 @@ describe 'project owner views a proposal' do
       freelancer: freelancer_b
     )
 
-    proposal_c = create(
+    _proposal_c = create(
       :proposal,
       resume: 'Faço as mais belas Landing Pages',
       project: project_iza,
@@ -62,7 +62,7 @@ describe 'project owner views a proposal' do
     visit root_path
     click_on 'Meus Projetos'
     click_on 'Ver propostas'
-    
+
     expect(page).to have_content('Trabalho com rapidez e qualidade')
     expect(page).to have_content('30')
     expect(page).to have_content(conclusion_date)
@@ -77,26 +77,26 @@ describe 'project owner views a proposal' do
 
   it 'and accept the proposal' do
     freelancer_a = create(:freelancer, email: 'freelancera@email.com.br')
-    freelancer_b = create(:freelancer, email: 'freelancerb@email.com.br')
+    _freelancer_b = create(:freelancer, email: 'freelancerb@email.com.br')
     ale = create(:project_owner, email: 'ale@email.com.br')
     iza = create(:project_owner, email: 'iza@email.com.br')
     project_ale = create(
       :project,
-        title: "Api de entregas",
-        description: "Api para servir de backend para aplicativo",
-        skills: "Ruby, SQL, Json",
-        project_owner: ale
+      title: 'Api de entregas',
+      description: 'Api para servir de backend para aplicativo',
+      skills: 'Ruby, SQL, Json',
+      project_owner: ale
     )
 
-    project_iza = create(
+    _project_iza = create(
       :project,
-      title: "Landing Page",
-      description: "Landing page para divulgação de venda de produtos importados",
-      skills: "html, css, javascript",
+      title: 'Landing Page',
+      description: 'Landing page para divulgação de venda de produtos importados',
+      skills: 'html, css, javascript',
       project_owner: iza
-                                 )
+    )
 
-    proposal_a = create(
+    _proposal_a = create(
       :proposal,
       resume: 'Trabalho com rapidez e qualidade',
       project: project_ale,
@@ -109,7 +109,7 @@ describe 'project owner views a proposal' do
     click_on 'Meus Projetos'
     click_on 'Ver propostas'
     click_on 'Aceitar proposta'
-    
+
     expect(page).to have_content('Trabalho com rapidez e qualidade')
     expect(page).to have_content('30')
     expect(page).to have_content(conclusion_date)
@@ -120,27 +120,27 @@ describe 'project owner views a proposal' do
 
   it 'and reject the proposal' do
     freelancer_a = create(:freelancer, email: 'freelancera@email.com.br')
-    freelancer_b = create(:freelancer, email: 'freelancerb@email.com.br')
+    _freelancer_b = create(:freelancer, email: 'freelancerb@email.com.br')
     ale = create(:project_owner)
     iza = create(:project_owner, email: 'iza@email.com.br')
 
     project_ale = create(
       :project,
-      title: "Api de entregas",
-      description: "Api para servir de backend para aplicativo",
-      skills: "Ruby, SQL, Json",
+      title: 'Api de entregas',
+      description: 'Api para servir de backend para aplicativo',
+      skills: 'Ruby, SQL, Json',
       project_owner: ale
     )
 
-    project_iza = create(
+    _project_iza = create(
       :project,
-      title: "Landing Page",
-      description: "Landing page para divulgação de venda de produtos importados",
-      skills: "html, css, javascript",
+      title: 'Landing Page',
+      description: 'Landing page para divulgação de venda de produtos importados',
+      skills: 'html, css, javascript',
       project_owner: iza
-      )
+    )
 
-    proposal_a = create(
+    _proposal_a = create(
       :proposal,
       resume: 'Trabalho com rapidez e qualidade',
       project: project_ale,

@@ -5,7 +5,7 @@ FactoryBot.define do
     skills { 'HTML, CSS, Javascript' }
     max_payment_hour { 80 }
     remote { true }
-    limit_bid_date  { 7.days.from_now }
+    limit_bid_date { 7.days.from_now }
     project_owner
   end
 end

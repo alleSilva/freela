@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe 'Project Owner register project' do
-  limit_date = "#{I18n.l(Date.today.advance({days: 7}))}"
+  limit_date = I18n.l(Time.zone.today.advance({ days: 7 })).to_s
 
   it 'must be signed in' do
-    # Act 
+    # Act
     visit root_path
     # Assert
     expect(page).not_to have_link('Publicar projeto')
@@ -12,10 +12,10 @@ describe 'Project Owner register project' do
   end
 
   it 'successfully' do
-    #Arrange
+    # Arrange
     project_owner = ProjectOwner.create!(email: 'ale@email.com.br', password: '123456')
 
-    #Act
+    # Act
     login_as project_owner, scope: :project_owner
     visit root_path
     click_on 'Publicar projeto'
@@ -28,14 +28,14 @@ describe 'Project Owner register project' do
     fill_in 'Aplicar até', with: limit_date
     click_on 'Publicar'
 
-    #Assert
+    # Assert
     expect(page).to have_content('Site institucional')
     expect(page).to have_content('Site de escola com várias informações')
-    expect(page).to have_content("Javascript, Html, Css")
-    expect(page).to have_content("R$ 50,00")
-    expect(page).to have_content("Remoto: Sim")
+    expect(page).to have_content('Javascript, Html, Css')
+    expect(page).to have_content('R$ 50,00')
+    expect(page).to have_content('Remoto: Sim')
     expect(page).to have_content("Aplicar até: #{limit_date}")
-    #expect(page).to have_content("Projeto publicado por: ale@email.com.br")
+    # expect(page).to have_content("Projeto publicado por: ale@email.com.br")
   end
 
   it 'and must fill all fields' do
