@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get '/sign_in', to: 'sign_in#index', as: 'sign_in_page'
-  get '/sign_up', to: 'sign_up#index', as: 'sign_up_page'
+  get '/auth/sign_in', to: 'auth#sign_in', as: 'sign_in'
+  get '/auth/sign_up', to: 'auth#sign_up', as: 'sign_up'
 
   resources :projects, only: %i[index show new create] do
     get 'my_projects', on: :collection

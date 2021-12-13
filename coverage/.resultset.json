@@ -323,8 +323,9 @@
           null
         ]
       },
-      "/home/alesandro/freela/app/controllers/sign_in_controller.rb": {
+      "/home/alesandro/freela/app/controllers/auth_controller.rb": {
         "lines": [
+          1,
           1,
           1,
           null
@@ -336,15 +337,6 @@
           0,
           null,
           0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/alesandro/freela/app/controllers/sign_up_controller.rb": {
-        "lines": [
           0,
           0,
           0
@@ -424,6 +416,6 @@
         }
       }
     },
-    "timestamp": 1639094994
+    "timestamp": 1639403066
   }
 }
